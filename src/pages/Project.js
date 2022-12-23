@@ -2,9 +2,9 @@ import { useParams } from 'react-router-dom';
 
 import BtnGitHub from '../component/btnGitHub/BtnGitHub';
 import { projects } from '../../src/helpers/projectsList'
-// import img from './../img/projects/02-big.jpg';
 
 import '../styles/main.css';
+import VercelBtn from '../component/vercelBtn/VerselBtn';
 
 
 
@@ -29,7 +29,8 @@ const Project = () => {
                     <p>{project.skills}</p>
                 </div>
 
-                {project.gitHubLink && (<BtnGitHub link={'https://github.com'} />)}
+                { !project.gitHubLink ?  (<BtnGitHub link={'https://github.com'} />) : <BtnGitHub link={project.gitHubLink} /> }
+                { !project.vercel ?  null : <VercelBtn  link={project.vercel} /> }
 
             </div>
         </div>
